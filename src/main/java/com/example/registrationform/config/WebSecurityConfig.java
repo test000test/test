@@ -23,7 +23,6 @@ public class WebSecurityConfig {
                     .requestMatchers("/registrationPage/**").permitAll()
                     .requestMatchers("/adminPage/**").hasRole("ADMIN")
                 .and()
-
                 .formLogin()
                     .loginPage("/login")
                     .defaultSuccessUrl("/")
@@ -35,7 +34,7 @@ public class WebSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-        //return new BCryptPasswordEncoder();
+        //return NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
     }
 }
